@@ -277,7 +277,7 @@ for region in regions:
     print(f"[INFO] REGION = {region}")
     print("==============================")
 
-    region_out_dir = os.path.join(out_dir, region)
+    region_out_dir = os.path.join(out_dir, f"{region}_log")
     os.makedirs(region_out_dir, exist_ok=True)
 
 
