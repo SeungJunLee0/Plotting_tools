@@ -277,6 +277,10 @@ for region in regions:
     print(f"[INFO] REGION = {region}")
     print("==============================")
 
+    region_out_dir = os.path.join(out_dir, region)
+    os.makedirs(region_out_dir, exist_ok=True)
+
+
     data_dir = os.path.join(DATA_BASE, region)
     mc_dir_1 = os.path.join(MC_BASE, region)  # MC 폴더가 있으면 여기
     mc_dir_2 = os.path.join(DATA_BASE, region)  # 없으면 Data에서 MC도
@@ -517,7 +521,7 @@ for region in regions:
         axr.set_ylim(0.5, 1.5)
 
         # 출력 파일명: stack_<hist>_<region>.png
-        out_path = os.path.join(out_dir, f"stack_{hname}_{region}.png")
+        out_path = os.path.join(region_out_dir, f"stack_{hname}.png")
         fig.savefig(out_path)
         plt.close(fig)
 
