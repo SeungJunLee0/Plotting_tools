@@ -26,18 +26,21 @@ os.makedirs(out_dir, exist_ok=True)
 # 1) region 폴더 리스트
 # ============================================================
 regions = [
-    "LM_met_mva_mtw",
-    "LT_met_mva_mtw",
-    "NLM_met_nmva_mtw",
-    "LM_met0_nmva_mtw",
-    "LM_met_nmva_mtw",
-    "LT_met_nmva_mtw",
-    "LM_met_nmva_nmtw",
-    "LT_met0_mva_nmtw",
-    "LT_met0_mva_mtw",
-    "LM_met0_mva_mtw",
+    #"LM_met0_mva_mtw_no",
+    #"LM_met0_mva_nmtw_no",
+    #"LT_met0_mva_nmtw_no",
+    #"LT_met_mva_mtw_no",
+    #"LT_met_nmva_mtw_no",
+    #"LM_met0_nmva_mtw_no",
+    #"LM_met_mva_mtw_no",
+    #"LM_met_mva_nmtw_no",
+    #"NLM_met_nmva_mtw_no",
+    #"LM_met_nmva_mtw_no",
+    #"LM_met_nmva_nmtw_no",
+    #"LT_met0_mva_mtw_no",
+    #"LT_met0_mva_nmtw",
+    #"LM_met_mva_nmtw",
     "LM_met0_mva_nmtw",
-    "LM_met_mva_nmtw",
 ]
 
 # ============================================================
@@ -331,7 +334,7 @@ for region in regions:
     hist_names = get_hist_names(mc_ref)
 
     # mu_*, e_*, combine_* 만
-    prefixes = ("mu", "e", "combine")
+    prefixes = ("mu", "e", "combine","A","B")
     hist_names = [h for h in hist_names if any(h.startswith(f"{p}_") for p in prefixes)]
 
     # --- 히스토 루프 ---
