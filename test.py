@@ -333,7 +333,7 @@ for region in regions:
     hist_names = get_hist_names(mc_ref)
 
     # mu_*, e_*, combine_* 만
-    prefixes = ("mu", "e", "combine","A","B")
+    prefixes = ("mu", "e", "combine","A","B","C","D")
     hist_names = [h for h in hist_names if any(h.startswith(f"{p}_") for p in prefixes)]
 
     # --- 히스토 루프 ---
@@ -485,6 +485,28 @@ for region in regions:
             com=13.6,
             ax=ax,
         )
+        # --- (savefig 직전) y축 1e7 같은 offset text를 플롯 안으로 옮기기 ---
+        ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
+        
+        # 먼저 한 번 렌더링해서 offset text 문자열이 실제로 생성되게 함
+        fig.canvas.draw()
+        
+        off = ax.yaxis.get_offset_text()
+        off_str = off.get_text()
+        
+        # 기존 offset text는 숨기고
+        off.set_visible(False)
+        
+        # 같은 내용을 플롯 안에 직접 그리기 (좌상단 안쪽)
+        if off_str.strip():
+            ax.text(
+                0.02, 0.98, off_str,          # (x,y) 조절 가능
+                transform=ax.transAxes,
+                ha="left", va="top",
+                fontsize=off.get_size(),
+                color="black",
+            )
+
 
         # Legend reorder
         handles, labels = ax.get_legend_handles_labels()

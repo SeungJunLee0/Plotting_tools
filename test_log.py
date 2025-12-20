@@ -19,7 +19,7 @@ MC_BASE = "MC" if os.path.isdir("MC") else "Data"
 
 PLOTS_DIR_IN_ROOT = "plots"
 
-out_dir = "Result/compare_plots_mpl_stack_v3_2024_log"
+out_dir = "Result/compare_plots_mpl_stack_v3_2024"
 os.makedirs(out_dir, exist_ok=True)
 
 # ============================================================
@@ -334,7 +334,7 @@ for region in regions:
     hist_names = get_hist_names(mc_ref)
 
     # mu_*, e_*, combine_* 만
-    prefixes = ("mu", "e", "combine","A","B")
+    prefixes = ("mu", "e", "combine","A","B","C","D")
     hist_names = [h for h in hist_names if any(h.startswith(f"{p}_") for p in prefixes)]
 
     # --- 히스토 루프 ---
