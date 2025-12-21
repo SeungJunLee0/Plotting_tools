@@ -40,7 +40,8 @@ regions = [
     #"LT_met0_mva_mtw_no",
     #"LT_met0_mva_nmtw",
     #"LM_met_mva_nmtw",
-    "LM_met0_mva_nmtw",
+    #"LM_met0_mva_nmtw",
+    "LM_met10_mva_nmtw",
 ]
 
 # ============================================================
@@ -89,6 +90,8 @@ data_files = [
 ]
 
 mc_files = [
+    "QCD_ABCD.root",
+
     "DY2E_2J_50_MC_2024.root",
     "DY2M_2J_50_MC_2024.root",
     "DY2T_2J_50_MC_2024.root",
@@ -146,6 +149,8 @@ def get_era_from_filename(path_or_name):
 # 4) MC cross section (pb) — BR 반영
 # ============================================================
 cross_sections_pb = {
+    "QCD_ABCD.root":                   1, 
+
     "DY2E_2J_50_MC_2024.root":      6639,
     "DY2M_2J_50_MC_2024.root":      6662,
     "DY2T_2J_50_MC_2024.root":      6630,
