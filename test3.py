@@ -31,7 +31,14 @@ SUMW_TXT_DIR = os.path.join(DATA_BASE, "sumw_txt")  # = "Data/sumw_txt"
 # 1) region 폴더 리스트
 # ============================================================
 regions = [
-    "LM_met10_mva_nmtw",
+    #"LM_met10_mva_nmtw",
+    #"LM_met10_mva_nmtw_etachange_dueto_btag",
+    #"Right_btag_eta_met10",
+    #"Right_btag_eta_met10_PF",
+    #"Right_btag_eta_met10_PF_nopi",
+    #"Right_btag_eta_met10_PF_vetojet",
+    #"Right_btag_eta_met10_PF_vetojet_WJ0",
+    "Final_1",
 ]
 
 # ============================================================
@@ -102,6 +109,9 @@ mc_files = [
     "Ttbar_semi_MC_2024.root",
     "Ttbar_ha_MC_2024.root",
 
+    "WJets_0J_MC_2023.root",
+    #"WJets_1J_MC_2023.root",
+    #"WJets_2J_MC_2023.root",
     "WJets_1J_MC_2024.root",
     "WJets_2J_MC_2024.root",
     "WJets_3J_MC_2024.root",
@@ -144,32 +154,39 @@ cross_sections_pb = {
     # DY
     "DY2E_2J_50_MC_2024.root":   6639,
     "DY2M_2J_50_MC_2024.root":   6662,
-    "DY2T_2J_50_MC_2024.root":   6630,
+    "DY2T_2J_50_MC_2024.root":   6681.5,
 
     # single top (s-channel)
-    "s-channel_antitop_MC_2024.root":  1.43,
-    "s-channel_top_MC_2024.root":      2.278,
+    "s-channel_antitop_MC_2024.root":  4.534 * 0.3258,#1.43,
+    "s-channel_top_MC_2024.root":      7.244 * 0.3258,#2.278,
 
     # single top (tW)
-    "ST_tW_antitop_di_MC_2024.root":    36.05 * 0.10621,
-    "ST_tW_antitop_semi_MC_2024.root":  36.05 * 0.43938,
-    "ST_tW_top_di_MC_2024.root":        35.99 * 0.10621,
-    "ST_tW_top_semi_MC_2024.root":      35.99 * 0.43938,
+    "ST_tW_antitop_di_MC_2024.root":      43.95 * 0.10615,# 36.05 * 0.10621,
+    "ST_tW_antitop_semi_MC_2024.root":    43.95 * 0.43931,# 36.05 * 0.43938,
+    "ST_tW_top_di_MC_2024.root":          43.95 * 0.10615,# 35.99 * 0.10621,
+    "ST_tW_top_semi_MC_2024.root":        43.95 * 0.43931,# 35.99 * 0.43938,
 
     # single top (t-channel)
-    "t-channel_antitop_MC_2024.root":  23.34,
-    "t-channel_top_MC_2024.root":      38.6,
+    "t-channel_antitop_MC_2024.root":  87.2  * 0.326,#23.34,
+    "t-channel_top_MC_2024.root":      145.0 * 0.326,#38.6,
 
     # ttbar
-    "Ttbar_di_MC_2024.root":     923.6 * 0.10621081,  # before 762.1
-    "Ttbar_semi_MC_2024.root":   923.6 * 0.43937838,
-    "Ttbar_ha_MC_2024.root":     923.6 * (1.0 - 0.10621081 - 0.43937838),
+    "Ttbar_di_MC_2024.root":    923.6 * 0.10621081, #762.1 * 0.10621081,
+    "Ttbar_semi_MC_2024.root":  923.6 * 0.43937838, #762.1 * 0.43937838,
+    "Ttbar_ha_MC_2024.root":    923.6 * (1.0 - 0.10621081 - 0.43937838), #762.1 * (1.0 - 0.10621081 - 0.43937838),
 
     # W+jets
-    "WJets_1J_MC_2024.root":     9141,
-    "WJets_2J_MC_2024.root":     2931,
-    "WJets_3J_MC_2024.root":     864.6,
-    "WJets_4J_MC_2024.root":     417.8,
+    "WJets_0J_MC_2023.root":     55760.0,
+    #"WJets_1J_MC_2023.root":     9529.0,
+    #"WJets_2J_MC_2023.root":     3532.0,
+    "WJets_1J_MC_2024.root":     9190,
+    "WJets_2J_MC_2024.root":     2950,
+    "WJets_3J_MC_2024.root":     867,
+    "WJets_4J_MC_2024.root":     417,
+    #"WJets_1J_MC_2024.root":     51216.6,#9190,#9141,
+    #"WJets_2J_MC_2024.root":     8751.3,#2950,#2931,
+    #"WJets_3J_MC_2024.root":     3232.0,#867,#864.6,
+    #"WJets_4J_MC_2024.root":     417,#417.8,
 
     # diboson / triboson
     "WW_MC_2024.root":           11.79,
@@ -208,6 +225,9 @@ sample_to_group = {
     "Ttbar_semi_MC_2024.root": "Ttbar",
     "Ttbar_ha_MC_2024.root":   "Ttbar",
 
+    "WJets_0J_MC_2023.root":   "W+jets",
+    #"WJets_1J_MC_2023.root":   "W+jets",
+    #"WJets_2J_MC_2023.root":   "W+jets",
     "WJets_1J_MC_2024.root":   "W+jets",
     "WJets_2J_MC_2024.root":   "W+jets",
     "WJets_3J_MC_2024.root":   "W+jets",
@@ -298,6 +318,11 @@ def parse_sumw_txt_file(txt_path: str):
             elif key == "WARNING":
                 info["warning"] = " ".join(toks[1:])
     return info
+
+def hide_zero_ticklabel(y, pos):
+    # y가 0이면 라벨을 비움 (0.0 포함)
+    return "" if np.isclose(y, 0.0) else f"{y:g}"
+
 
 def load_sumw_maps(sumw_dir: str):
     """
@@ -430,7 +455,7 @@ for region in regions:
     hist_names = get_hist_names(ref_file)
 
     # mu_*, e_*, combine_* 만
-    prefixes = ("mu", "e", "combine")
+    prefixes = ("mu", "e", "combine")#,"A","B","C","D")
     hist_names = [h for h in hist_names if any(h.startswith(f"{p}_") for p in prefixes)]
 
     print(f"[INFO] n_hist to draw = {len(hist_names)} (ref={os.path.basename(ref_file)})")
@@ -630,6 +655,15 @@ for region in regions:
         # y축 sci offset text를 플롯 안으로
         ax.ticklabel_format(axis="y", style="sci", scilimits=(0, 0), useMathText=True)
         fig.canvas.draw()
+
+        # (sci 표기 유지) y축 tick label 중 0만 비우기
+        ticks = ax.get_yticks()
+        labels = [lab.get_text() for lab in ax.get_yticklabels()]
+        new_labels = []
+        for t, s in zip(ticks, labels):
+            new_labels.append("" if np.isclose(t, 0.0) else s)
+        ax.set_yticklabels(new_labels)
+
         off = ax.yaxis.get_offset_text()
         off_str = off.get_text()
         off.set_visible(False)
@@ -675,6 +709,7 @@ for region in regions:
         axr.set_ylabel("Data/MC")
         axr.set_xlabel(hname)
         axr.set_ylim(0.5, 1.5)
+
 
         out_path = os.path.join(region_out_dir, f"stack_{hname}.png")
         fig.savefig(out_path)
